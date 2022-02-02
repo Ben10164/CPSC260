@@ -15,3 +15,5 @@ RUN apt update
 RUN apt install make -y
 
 RUN apt install git -y
+
+RUN apt-get install mingw-w64 -y
