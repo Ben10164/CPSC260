@@ -1,0 +1,17 @@
+Explaining the U variable since its number is easier to explain
+
+first u=4294967295, which is also 0xffffffff, 
+also known as the max of an unsigned int, 
+however when you convert it to an unsigned int, 
+0xFFFFFFFF is -1. 
+This is because if the leftmost byte in an 
+unsigned number is above 7, that means that the leftmost bit in the byte
+is a 1. This means the number is negative, and in this case with ffffffff, it is -1
+
+This also explains the next 3 lines, where the hex is the same, yet the values are different
+This all relates to if the datatype will register the leftmost bit as being a 1 affecting the rest of the 
+calculation relating to the value of the number
+
+The last 2 lines of the program (also explained above) also show how the 
+specific tags of %u and %d will output the number as an unsigned value and a signed values
+respectivley
