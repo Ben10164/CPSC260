@@ -1,4 +1,6 @@
-default:
+default: mac 32bit 64bit
+
+mac:
 	gcc -Og -S helloworld.c
 	gcc -Og -o helloworld helloworld.s
 
