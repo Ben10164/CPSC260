@@ -12,8 +12,9 @@
     "extensions": [
         "ms-vscode.cpptools",
         "formulahendry.code-runner",
-        "vicentbaeza.assembly-syntax",
-        "ms-vscode-remote.remote-containers"
+        "maziac.asm-code-lens",
+        "ms-vscode-remote.remote-containers",
+        "vicentbaeza.assembly-syntax"
     ]
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
