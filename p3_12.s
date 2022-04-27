@@ -1,6 +1,3 @@
-# GARBAGE CODE.
-# apart from the bottom, thats god tier
-
 # Code by Ben Puryear
 LC0:
 	.ascii " Enter the x and y numbers \0"

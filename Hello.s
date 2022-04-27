@@ -1,22 +1,33 @@
+	.arch armv8-a
 	.file	"Hello.c"
-	.def	___main;	.scl	2;	.type	32;	.endef
-	.section .rdata,"dr"
-LC0:
-	.ascii " hello world \0"
 	.text
-	.globl	_main
-	.def	_main;	.scl	2;	.type	32;	.endef
-_main:
-LFB12:
-	pushl	%ebp
-	movl	%esp, %ebp
-	andl	$-16, %esp
-	subl	$16, %esp
-	movl	$LC0, (%esp)
-	call	_printf
-	movl	$0, %eax
-	leave
+	.section	.rodata
+	.align	3
+.LC0:
+	.string	" hello world "
+	.text
+	.align	2
+	.global	main
+	.type	main, %function
+main:
+.LFB0:
+	.cfi_startproc
+	stp	x29, x30, [sp, -16]!
+	.cfi_def_cfa_offset 16
+	.cfi_offset 29, -16
+	.cfi_offset 30, -8
+	mov	x29, sp
+	adrp	x0, .LC0
+	add	x0, x0, :lo12:.LC0
+	bl	printf
+	mov	w0, 0
+	ldp	x29, x30, [sp], 16
+	.cfi_restore 30
+	.cfi_restore 29
+	.cfi_def_cfa_offset 0
 	ret
-LFE12:
-	.ident	"GCC: (MinGW.org GCC-6.3.0-1) 6.3.0"
-	.def	_printf;	.scl	2;	.type	32;	.endef
+	.cfi_endproc
+.LFE0:
+	.size	main, .-main
+	.ident	"GCC: (Debian 10.2.1-6) 10.2.1 20210110"
+	.section	.note.GNU-stack,"",@progbits
